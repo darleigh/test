@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>{{ site.author }} • {{ page.project.title }}</title>
+	<title>{{ site.author }} / {{ page.project.title }}</title>
 	<meta name="author" content="{{ site.author }}">
 	<meta name="description" content="{{ page.content | strip_html | strip_newlines }}">
 	<meta name="keywords" content="{{ page.meta.keywords }}">
@@ -10,47 +10,36 @@
 <body>
 	{% include header.html %}
 	<main class="content">
-		<!--==================== DECORATE ====================-->
-		<section class="home" id="decorate">
-			<div class="home__container container grid" style="box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;border-radius:8px;background-color:#fafafa">
-				{% for item in site.categories.projects reversed %}
-								<div class="img-wrapper">
-									{% assign found_image = false %}
-										{% for file in site.static_files %}
-											{% if found_image == false and file.path contains 'customer/'page.project.direction %}
-												{% assign found_image = true %}
-												<article class="product__card">
-												<img src="{{ file.path | prepend: site.baseurl }}" alt="{{ item.project.title }}" class="product__img"/>
-												</article>
-											{% endif %}
-										{% endfor %}
-								</div>
-								<!-- <h4 style="padding-top:10px">{{item.project.title}}</h4> -->
-							</a>
-						{% endfor %}
-				<div class="home__data" style="padding:8px;">
-					<h4> Mừng ngày kỷ niệm của</h4>
-					<h1 class="home__title">
-						🤵🏻 {{page.project.groom}}<br>
-						👰🏻‍♀️ {{page.project.bride}}
+		<section class="project">
+			<div class="container">
+				<article>
+					<span class="h2">Project Title</span>
+					<h1>
+						<a href="{{ page.project.url }}" target="_blank" title="{{ page.project.title }}" rel="nofollow">{{ page.project.title }}</a>
 					</h1>
-					<p class="home__description">Vào ngày <b>{{ page.date | date: "%d/%m/%Y" }}</b>.
-					<br>Tại <b>{{page.project.location}}</b>.</p>
-					<p class="home__description">
-						Hạnh phúc không phải là điều dễ dàng để đạt được, nhưng nếu bạn sẵn sàng bước qua những chông gai và khó khăn, thì đó là một hành trình đầy ý nghĩa. Và khi bạn đã tìm thấy người mình yêu thương, hãy cùng nhau trải qua những khoảnh khắc tuyệt vời nhất của cuộc đời.
-					</p>
-					<div>
-						<a href="{{page.project.brideurl}}" class="button button--flex" style="width: 45%;">
-							👰🏻‍♀️<i class="ri-arrow-right-down-line button__icon"></i>
-						</a>
-						<a href="{{page.project.groomurl}}" class="button button--flex" style="background-color:rgb(244, 244, 244);color:black; width: 45%;border: 1px solid rgba(27, 31, 35, 0.15)">
-							🤵🏻<i class="ri-arrow-right-down-line button__icon"></i>
-						</a>
+					<span class="h2">Role</span>
+					{{ page.content }}
+					<div class="project-meta">
+						<span class="h2">Technologies</span>
+						<p>{{ page.project.tech }}</p>
+						<span class="h2">Agency</span>
+						<p><a title="{{ page.agency.title }}" href="{{ page.agency.url }}" target="_blank" rel="nofollow">{{ page.agency.title }}</a></p>
+						<span class="h2">Year</span>
+						<p>{{ page.agency.year }}</p>
 					</div>
-				</div>
+				</article>
+				<aside>
+					<ul>
+						{% for image in page.images %}
+						<li>
+							<img src="{{ image.url | prepend: site.baseurl }}" alt="{{ image.alt }}" />
+						</li>
+						{% endfor %}
+					</ul>
+				</aside>
 			</div>
 		</section>
-		<!-- <section class="project-navigation">
+		<section class="project-navigation">
 			<div class="container">
 				{% if page.previous and page.previous.categories contains "projects" %}
 				<a title="Previous {{ page.previous.project.title }}" href="{{ page.previous.url | prepend: site.baseurl }}" class="prev">
@@ -64,37 +53,7 @@
 					<h2>{{ page.next.project.title }}</h2>
 				</a>
 				{% endif %}
-			</div> -->
-		</section>
-		<section class="product section container" style="background-color:#fafafa;border: 1px solid rgba(27, 31, 35, 0.15)">
-			<h2 class="section__title-center">
-				Cùng xem ngay<br> các khoảng khắc tuyệt vời của<br>
-				{{page.project.groom}} 🤵🏻👰🏻‍♀️ {{page.project.bride}}.
-			</h2>
-
-			<p class="product__description">
-				Những khoảnh khắc ấy đưa chúng ta vào một thế giới của tình yêu và hạnh phúc. Trong từng bức ảnh, ánh nắng vàng nhẹ nhàng chiếu sáng trên khuôn mặt của họ, làm nổi bật vẻ đẹp tự nhiên của họ. Những tràng cười vui tươi, những cái ôm ấm áp, những ánh mắt đắm say đều được ghi lại bằng những bức ảnh đầy cảm xúc.
-				nhau tạo nên một khoảng thời gian đáng nhớ trong cuộc đời của họ.
-			</p>
-		<!-- ==================== SHOWALL ==================== -->		
-			  <!-- <div class="product__container grid">
-				{% for file in site.static_files %}
-					{% if file.path contains 'customer/'+page.project.direction %}
-						<article class="product__card">
-						<img src="{{ file.path | prepend: site.baseurl }}" alt="{{ file.name }}" class="product__img"/>
-					 	 </article>
-					{% endif %}
-				{% endfor %}
-			  </div> -->
-			  <div class="product__container grid">
-				{% for image in page.images %}
-						<article class="product__card">
-							<img src="{{ image.url | prepend: site.baseurl }}" alt="{{ image.alt }}"
-					 	 </article>
-				{% endfor %}
-			  </div>
-			  <hr>
-			  <p class="product__description">Những khoảnh khắc tuyệt vời đó sẽ mãi được lưu giữ và ghi nhận trong trái tim của họ, khiến cho họ càng yêu thương và trân trọng nhau hơn nữa.</p>
+			</div>
 		</section>
 	</main>
 	{% include footer.html %}
