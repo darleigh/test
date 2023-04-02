@@ -1,0 +1,248 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="https://honghanh.org/assets/img/favicon.png" type="image/x-icon">
+        <!--=============== REMIX ICONS ===============-->
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="/assets/css/styles.css">
+		<!-- jQuery -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZEuEWQIytfwbg8i9aMI1U1" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-Q8i/XyCfVt8jB3icfG2eryL2Q5Pa5h9TxhBsf7IpbaqqgCtJfGhpieBh8bNIaU6j" crossorigin="anonymous"></script>
+		  
+	<title>{{ site.author }} | {{ site.tagline }}</title>
+	{% include seo.html %}
+	{% include head.html %}
+</head>
+<body>
+	{% include header.html %}
+	<main class="content">
+		<section class="intro">
+			<div class="container" id="story">
+				<h1 class="section__title-center" style="margin-top:100px">
+					Các sự kiện nổi bật.
+				</h1>
+				<p class="product__description">
+					Lưu trữ kỷ niệm cả đời! 🥰
+				</p>
+				<div class="grid-container" style="margin-top:50px; background-color:#fff; padding:30px;border-radius:10px;border: 1px solid rgba(27, 31, 35, 0.15)">
+						{% for item in site.categories.projects reversed %}
+									{% assign found_image = false %}
+										{% for file in site.static_files %}
+											{% if found_image == false and file.path contains 'customer/'+page.project.direction %}
+											<a href="{{ item.url | prepend: site.baseurl }}">
+												<div class="img-wrapper">
+												{% assign found_image = true %}
+												<article class="product__card">
+												<img src="{{ file.path | prepend: site.baseurl }}" alt="{{ item.project.title }}" class="product__img"/>
+												</article>
+												</div>
+											</a>
+											{% endif %}
+										{% endfor %}
+						{% endfor %}
+				</div>
+
+				
+	
+				  
+				  
+					
+		</section>
+		<!--==================== DECORATE ====================-->
+		<section class="home" id="decorate">
+			<div class="home__container container grid" style="border: 1px solid rgba(27, 31, 35, 0.15);padding:20px;border-radius:8px; background-color:#fff">
+					<!-- <img style="border-radius: 20px" src="assets/img/decoration_1.jpg" alt="" class="home__img"> -->
+					<img style="border-radius: 20px" src="assets/img/trangtri.png" alt="" class="home__img">
+				<div class="home__data">
+					<h4>Cùng lưu giữ </h4>
+					<h2 class="section__title about__title">
+						Kỷ niệm! ⭐
+					</h2>
+					<p class="home__description">
+						Một hành trình để đi tìm hạnh phúc thì phải bước qua biết bao nhiêu chông gai, chúng tôi luôn muốn cùng bạn lưu giữ những khoảng khắc tuyệt vời nhất.
+					</p>
+					<a href="https://zalo.me/0919045020" class="button button--flex" style="width:45%">
+						Liên hệ <i class="ri-arrow-right-down-line button__icon"></i>
+					</a>
+					<a href="https://www.tiktok.com/@honghanhdecor?_t=8YzqZK2pyx0&_r=1" class="button button--flex" style="background-color:rgb(244, 244, 244);color:black;width:45%">
+						Tiktok<i class="ri-arrow-right-down-line button__icon"></i>
+					</a>
+				</div>
+			</div>
+		</section>
+		<!--==================== INVITATION ====================-->
+		<section class="about section container" id="invitation" style="background-color:#fff; padding:30px;border-radius:10px;border: 1px solid rgba(27, 31, 35, 0.15)" >
+			<div class="about__container grid">
+				<img style="border-radius: 20px" src="assets/img/message.png" alt="Thiệp đẹp siêu cấp vip pro" class="about__img">
+
+				<div class="about__data">
+					<h2 class="section__title about__title">
+						In ngay Thiệp mời
+					</h2>
+
+					<p class="about__description">
+						Chúng tôi với hơn 20 năm kinh nghiệm trong lĩnh vực tiệc cưới cùng số lượng khách hàng tin tưởng và sử dụng dịch vụ hơn 40+ và số lượng 7000+ mẫu thiệp được in mỗi tháng.
+					</p>
+
+					<div class="about__details">
+						<p class="about__details-description">
+							<i class="ri-checkbox-fill about__details-icon"></i>
+							Ấn phẩm chất lượng tốt nhất so với tầm giá.
+						</p>
+						<p class="about__details-description">
+							<i class="ri-checkbox-fill about__details-icon"></i>
+							In tên theo danh sách.
+						</p>
+						<p class="about__details-description">
+							<i class="ri-checkbox-fill about__details-icon"></i>
+							Nhiều sản phẩm có ngay trong ngày.
+						</p>
+						<p class="about__details-description">
+							<i class="ri-checkbox-fill about__details-icon"></i>
+							Nhiều sản phẩm in thêm không phí phụ thu.
+						</p>
+						
+						<p class="about__details-description">
+							<i class="ri-checkbox-fill about__details-icon"></i>
+							Đổi trả miễn phí cho các sản phẩm lỗi.
+						</p>
+						<p class="about__details-description">
+							<i class="ri-checkbox-fill about__details-icon"></i>
+							Đóng góp 10% doanh thu mục này tại UBND Phường 1 mỗi cuối năm.
+						</p>
+					</div>
+					<div>
+					<a href="#invitation_publication" class="button button--flex">
+						Xem liền!<i class="ri-arrow-right-down-line button__icon"></i>
+					</a>
+					<!-- <a href="https://www.icloud.com/sharedalbum/vi-vi/#B0T532ODWi1fRnP" class="button button--flex" style="height:auto; width: 45%;text-align: center;">
+						<i class="ri-vip-crown-2-fill"></i>Cao cấp<i class="ri-arrow-right-down-line button__icon"></i>
+					</a> -->
+					<!-- <a style="margin-top:8px;width: 45%;text-align: center;"href="https://www.icloud.com/sharedalbum/vi-vi/#B0z532ODWre8BWe" class="button button--flex col-md-auto">
+						<i class="ri-mail-unread-fill"></i>Canva<i class="ri-arrow-right-down-line button__icon"></i>
+					</a>
+					<a style="margin-top:8px; background-color:rgb(244, 244, 244);color:black; height:auto; width: 45%;text-align: center;" href="https://www.icloud.com/sharedalbum/vi-vi/#B0T5oqs3q22j12E" class="button button--flex col-md-auto">
+						<i class="ri-cake-3-fill"></i> Sinh nhật <i class="ri-arrow-right-down-line button__icon"></i>
+					</a>
+					<a style="margin-top:8px; background-color:rgb(244, 244, 244);color:black;height:auto; width: 45%;text-align: center;" href="https://theme.mykiot.vn/retail/500152698-195374?category=abd765e445b085c7336d1d277bcd4ca0&category_expanded=abd765e445b085c7336d1d277bcd4ca0" class="button button--flex col-md-auto">
+						<i class="ri-shopping-bag-3-fill"></i>Đặt hàng<i class="ri-arrow-right-down-line button__icon"></i>
+					</a> -->
+				</div>
+
+			</div>
+		</section>
+
+		<!--==================== PRODUCTS ====================-->
+		<section class="product section container" style="background-color:#fff; padding:30px;border-radius:10px;border: 1px solid rgba(27, 31, 35, 0.15);margin-top:80px;">  
+			<h4>Xem ngay các mẫu</h4>
+			<h2 class="section__title-center" id="invitation_highlight">
+				Thiệp mời của 🤵🏻👰🏻‍♀️
+			</h2>
+
+			<p class="product__description">
+				Các mẫu thiệp nổi bật.
+			</p>
+			<!-- <a href="	/product" class="button button--flex" style="background-color:rgb(244, 244, 244);color:black;">
+				Xem chi tiết<i class="ri-arrow-right-down-line button__icon"></i>
+			</a> -->
+			<!-- ==================== SHOWALL ==================== -->
+			<!-- <div class="product__container grid">
+				{% for file in site.static_files %}
+				  {% if file.path contains 'invitation_card/cake'%}
+					<article class="product__card">
+					  
+					  <img src="{{ file.path | prepend: site.baseurl }}" alt="{{ file.name }}" class="product__img"/>
+					</article>
+				  {% endif %}
+				{% endfor %}
+			  </div> -->
+			  <!--==================== THIỆP MỜI ====================-->
+			<div class="product__container grid">
+				{% assign count = 0 %}
+				{% for file in site.static_files %}
+				  {% if file.path contains 'invitation_card/highlight' and count < 8 %}
+					{% assign count = count | plus: 1 %}
+					<article class="product__card">
+					  <img src="{{ file.path | prepend: site.baseurl }}" alt="{{ file.name }}" class="product__img"/>
+					</article>
+				  {% endif %}
+				{% endfor %}
+			  </div>
+			  <hr>
+			  <!--==================== THIỆP SINH NHẬT ====================-->
+			  <h4>Xem ngay các mẫu </h4>
+			  <h2 class="section__title-center" id="invitation_cake">
+				Thiệp sinh nhật đáng yêu <br> cho bé 👧🏻 và bé 👦🏻.
+			</h2>
+
+			<p class="product__description">
+				Các mẫu thiệp sinh nhật giá rẻ cho số lượng ít. Nhưng chất lượng thì chưa chắc đâu à nha! 😁
+			</p>
+			<!-- <a href="{{site.baseurl}}" class="button button--flex" style="background-color:rgb(244, 244, 244);color:black;">
+				Tiktok<i class="ri-arrow-right-down-line button__icon"></i>
+			</a> -->
+			<div class="product__container grid">
+				{% assign count = 0 %}
+				{% for file in site.static_files %}
+				  {% if file.path contains 'invitation_card/cake' and count < 4 %}
+					{% assign count = count | plus: 1 %}
+					<article class="product__card">
+					  <img src="{{ file.path | prepend: site.baseurl }}" alt="{{ file.name }}" class="product__img"/>
+					</article>
+				  {% endif %}
+				{% endfor %}
+			  </div>
+			  <hr>
+			<!--==================== DANH THIẾP ====================-->
+			<h4>Các mẫu thiết kế</h4>
+			  <h2 class="section__title-center" id="invitation_publication">
+				Danh thiếp • Hoá đơn
+			</h2>
+
+			<p class="product__description">
+				Các mẫu thiết kế nổi bật, đặc biệt có thêm chương trình Danh thiếp trực tuyến cho quý khách hàng.
+			</p>
+			<!-- <a href="{{site.baseurl}}" class="button button--flex" style="background-color:rgb(244, 244, 244);color:black;">
+				Tiktok<i class="ri-arrow-right-down-line button__icon"></i>
+			</a> -->
+			<div class="product__container grid">
+				{% assign count = 0 %}
+				{% for file in site.static_files %}
+				  {% if file.path contains 'invitation_card/pub' and count < 4 %}
+					{% assign count = count | plus: 1 %}
+					<article class="product__card">
+					  
+					  <img src="{{ file.path | prepend: site.baseurl }}" alt="{{ file.name }}" class="product__img"/>
+					</article>
+				  {% endif %}
+				{% endfor %}
+			  </div>
+		</section>
+		<!--==================== PARTNER ====================-->
+		<!-- <section class="product section container" id="partner">
+			<h2 class="section__title-center">
+				Đối tác<br> đã đồng hành cùng chúng tôi.
+			</h2>
+		</section>
+	-->
+		<!--==================== THANKS ====================-->
+		<!-- <section class="product section container" id="partner">
+			<h2 class="section__title-center">
+				Chân thành cảm ơn Quý khách.
+			</h2>
+			<p class="product__description">vì đã đồng hành và tin tưởng sử dụng dịch vụ của chúng tôi.</p>
+		</section> -->
+	</main>
+	{% include footer.html %}
+	<script src="{{ "/assets/scripts/vendor/scrollreveal.min.js" | prepend: site.baseurl }}"></script>
+	<script src="{{ "/assets/scripts/home.js" | prepend: site.baseurl }}"></script>
+</body>
+</html>
